@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#f5f3f0"/><text x="50" y="62" font-family="Georgia,serif" font-size="42" text-anchor="middle" fill="#111111">W</text></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { color: #111111; text-decoration: none; }
+  a:hover { color: #666666; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:#ffffff; color:#111111; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; padding-left:240px; box-sizing:border-box;">
+
+  <dc-import name="Nav" current="photo-stories" menu-scale="0.85" nav-offset-y="40" hint-size="100%,90px"></dc-import>
+
+  <main data-screen-label="Eldred Rock Prepares for the Public" style="flex:1; display:flex; flex-direction:column; align-items:center; padding:64px 24px 96px;">
+    <div style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#999999; margin-bottom:12px;">Photo Stories</div>
+    <h1 style="font-family:Georgia,'Times New Roman',serif; font-weight:400; font-size:34px; margin:0 0 16px; text-align:center; max-width:640px;">Photos: Eldred Rock Lighthouse Restoration</h1>
+    <a href="https://www.chilkatvalleynews.com/2025/09/05/photos-residents-restore-eldred-rock-light/" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#999999; text-decoration:none; margin-bottom:44px;">Read the article on Chilkat Valley News <span style="color:#bbbbbb;">↗</span></a>
+
+    <dc-import name="PhotoStack" items="{{ images }}" hint-size="100%,1200px"></dc-import>
+  </main>
+
+  <dc-import name="Footer" hint-size="100%,90px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1100}}">
+const IMAGES = [
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF1101.jpg', caption: 'Eldred Rock, Saturday, Aug. 30, 2025. (Will Steinfeld/Chilkat Valley News)' },
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF0562.jpg', caption: 'Haines resident and Eldred Rock volunteer Gina St. Clair arrives at Eldred Rock, Saturday, Aug. 30, 2025. (Will Steinfeld/Chilkat Valley News)' },
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF0588.jpg', caption: 'Inside Eldred Rock Lighthouse, looking south, Saturday, Aug. 30, 2025. (Will Steinfeld/Chilkat Valley News)' },
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF1069.jpg', caption: 'A hammock hangs at Eldred Rock, Saturday, Aug. 30, 2025. (Will Steinfeld/Chilkat Valley News)' },
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF0736.jpg', caption: 'Gina St. Clair cleans windows at Eldred Rock, Saturday, Aug. 30, 2025. (Will Steinfeld/Chilkat Valley News)' },
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF1475.jpg', caption: 'Haines resident and Eldred Rock Lighthouse Preservation Association director Dan Humphrey at Eldred Rock Lighthouse, Sunday, Aug. 31, 2025. (Will Steinfeld/Chilkat Valley News)' },
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF8987.jpg', caption: 'Evening from the top of Eldred Rock Lighthouse, Sunday, Aug. 31, 2025. (Will Steinfeld/Chilkat Valley News)' },
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF1389.jpg', caption: 'Haines resident and Eldred Rock volunteer Gina St. Clair at Eldred Rock Lighthouse, Sunday, Aug. 31, 2025. (Will Steinfeld/Chilkat Valley News)' },
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF0640.jpg' },
+  { url: 'https://www.chilkatvalleynews.com/wp-content/uploads/2025/09/DSCF1293.jpg' },
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    return { images: IMAGES };
+  }
+}
+
+</script>
+</body>
+</html>

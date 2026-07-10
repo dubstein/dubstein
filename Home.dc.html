@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#f5f3f0"/><text x="50" y="62" font-family="Georgia,serif" font-size="42" text-anchor="middle" fill="#111111">W</text></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { color: #111111; text-decoration: none; }
+  a:hover { color: #666666; }
+  /* The dashed drop-target ring can persist visually after a slot fills in
+     some re-render timings; the placeholder icon/caption already communicate
+     the empty state, so hide the ring outright via its exposed shadow part. */
+  image-slot::part(ring) { display: none !important; }
+  image-slot::part(frame) { background: transparent !important; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="height:100vh; overflow:hidden; display:flex; flex-direction:column; background:#ffffff; color:#111111; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; padding-left:192px; box-sizing:border-box;">
+
+  
+
+  <dc-import name="Nav" current="home" menu-scale="0.85" nav-offset-y="40" hint-size="100%,90px"></dc-import><main data-screen-label="Home" style="flex:1; min-height:0; display:flex; align-items:center; justify-content:center; padding:24px;">
+    <div ref="{{ setImgRef }}" onClick="{{ onImgClick }}" onMouseMove="{{ onImgMouseMove }}" style="position:relative; width:min(73.8vw,1260px); aspect-ratio:3/2; max-height:73.8vh; overflow:hidden; cursor:{{ hoverCursor }};">
+      <sc-for list="{{ slots }}" as="slot" hint-placeholder-count="8">
+        <image-slot id="{{ slot.id }}" data-idx="{{ slot.index }}" shape="rect" fit="contain" src="{{ slot.src }}" placeholder="{{ slot.placeholder }}" style="position: absolute; inset: 0; width: 100%; height: 100%; display: {{ slot.display }};"></image-slot>
+      </sc-for>
+    </div>
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1100},&quot;titleOffsetPx&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:-33,&quot;min&quot;:-60,&quot;max&quot;:60,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Nav&quot;}}">
+const RIGHT_ARROW_CURSOR =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='14' viewBox='0 0 22 14'%3E%3Cline x1='1' y1='7' x2='16' y2='7' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M12 2 L19 7 L12 12 Z' fill='white'/%3E%3Cline x1='1' y1='7' x2='16' y2='7' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M12 2 L19 7 L12 12 Z' fill='black' stroke='white' stroke-width='0.75' stroke-linejoin='round'/%3E%3C/svg%3E\") 11 7, pointer";
+const LEFT_ARROW_CURSOR =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='14' viewBox='0 0 22 14'%3E%3Cline x1='21' y1='7' x2='6' y2='7' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M10 2 L3 7 L10 12 Z' fill='white'/%3E%3Cline x1='21' y1='7' x2='6' y2='7' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M10 2 L3 7 L10 12 Z' fill='black' stroke='white' stroke-width='0.75' stroke-linejoin='round'/%3E%3C/svg%3E\") 11 7, pointer";
+
+// The first 5 slots are pre-filled with your existing photos. The remaining
+// slots are empty placeholders — drag your own image onto any empty slot
+// (or click it to browse) to add more photos to the gallery; ask to bump
+// NUM_SLOTS if you want room for even more.
+const NUM_SLOTS = 8;
+const PREFILLED = [
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/dscf5228.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9312.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/06/dscf4994.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9394.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2307-enhanced-nr.jpg?w=1600',
+  './images/home-gallery-5.webp',
+  './images/home-gallery-6.webp',
+  './images/home-gallery-7.webp',
+];
+
+class Component extends DCLogic {
+  state = { index: 0, hoverSide: 'right' };
+
+  _sideFromEvent(e) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    return x < rect.width / 2 ? 'left' : 'right';
+  }
+
+  _isFilled(idx) {
+    // Don't rely on image-slot's own `data-filled` host attribute — it can
+    // get wiped by re-renders of this page. Read the shadow DOM's actual
+    // rendered state instead, which reflects the real filled/empty status.
+    const el = this._imgEl && this._imgEl.querySelector('image-slot[data-idx="' + idx + '"]');
+    if (!el || !el.shadowRoot) return false;
+    const img = el.shadowRoot.querySelector('.frame img');
+    return !!(img && img.style.display !== 'none' && img.getAttribute('src'));
+  }
+
+  _findFilled(from, dir) {
+    for (let step = 1; step <= NUM_SLOTS; step++) {
+      const idx = (from + dir * step + NUM_SLOTS * NUM_SLOTS) % NUM_SLOTS;
+      if (this._isFilled(idx)) return idx;
+    }
+    return from;
+  }
+
+  renderVals() {
+    const slots = [];
+    for (let i = 0; i < NUM_SLOTS; i++) {
+      slots.push({
+        id: 'home-gallery-' + i,
+        index: i,
+        src: PREFILLED[i] || '',
+        display: i === this.state.index ? 'block' : 'none',
+        placeholder: i === 0 ? 'Drop your featured photo' : 'Drop the next photo',
+      });
+    }
+    return {
+      slots,
+      hoverCursor: this.state.hoverSide === 'left' ? LEFT_ARROW_CURSOR : RIGHT_ARROW_CURSOR,
+      onImgMouseMove: (e) => {
+        const side = this._sideFromEvent(e);
+        if (side !== this.state.hoverSide) this.setState({ hoverSide: side });
+      },
+      onImgClick: (e) => {
+        // Only hijack the click for prev/next when the current slot already
+        // has a photo — an empty slot's own click-to-browse should proceed.
+        if (!this._isFilled(this.state.index)) return;
+        const side = this._sideFromEvent(e);
+        this.setState((s) => ({ index: this._findFilled(s.index, side === 'left' ? -1 : 1) }));
+      },
+      setImgRef: (el) => {
+        this._imgEl = el;
+      },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

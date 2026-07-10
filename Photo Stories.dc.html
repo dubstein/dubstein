@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#f5f3f0"/><text x="50" y="62" font-family="Georgia,serif" font-size="42" text-anchor="middle" fill="#111111">W</text></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { color: #111111; text-decoration: none; }
+  a:hover { color: #666666; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:#ffffff; color:#111111; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; padding-left:240px; box-sizing:border-box;">
+
+  <dc-import name="Nav" current="photo-stories" menu-scale="0.85" nav-offset-y="40" hint-size="100%,90px"></dc-import>
+
+  <main data-screen-label="Photo Stories" style="flex:1; display:flex; flex-direction:column; align-items:center; padding:64px 24px 96px;">
+    <div style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#999999; margin-bottom:12px;">Photo Stories</div>
+    <h1 style="font-family:Georgia,'Times New Roman',serif; font-weight:400; font-size:34px; margin:0 0 24px; text-align:center;">Photo Stories</h1>
+
+    <div style="max-width:560px; text-align:center; font-size:17px; line-height:1.7; font-style:italic; color:#444444; margin-bottom:56px;">
+      <p>In February, 2025 I moved to Haines, Alaska – a town on the neck of a peninsula at the top of Alaska's Inside Passage. In Haines I'm writing and photographing for our area paper of record, the Chilkat Valley News.</p>
+      <p>Read more about what I'm up to here: <a href="https://willsteinfeld.substack.com/">willsteinfeld.substack.com</a></p>
+      <p>And check out the paper: <a href="https://www.chilkatvalleynews.com/">chilkatvalleynews.com</a></p>
+    </div>
+
+    <p style="max-width:720px; text-align:center; font-size:16px; color:#666666; margin-bottom:56px;">The following are a number of my photo stories from the past year:</p>
+
+    <sc-for list="{{ sections }}" as="section" hint-placeholder-count="6">
+      <section style="width:100%; max-width:720px; margin-bottom:72px;">
+        <sc-if value="{{ section.headingUrl }}" hint-placeholder-val="{{ false }}">
+          <h2 style="text-align:center; font-size:20px; font-weight:700; margin:0 0 8px;">
+            <a href="{{ section.headingUrl }}">{{ section.heading }}</a>
+          </h2>
+        </sc-if>
+        <sc-if value="{{ section.plainHeading }}" hint-placeholder-val="{{ false }}">
+          <h2 style="text-align:center; font-size:20px; font-weight:700; margin:0 0 8px;">{{ section.heading }}</h2>
+        </sc-if>
+        <sc-if value="{{ section.hasSubtitle }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center; font-style:italic; color:#777777; font-size:14px; margin-bottom:28px;">{{ section.subtitle }}</div>
+        </sc-if>
+        <div style="margin-top:28px;">
+          <dc-import name="PhotoStack" items="{{ section.items }}" hint-size="100%,900px"></dc-import>
+        </div>
+      </section>
+    </sc-for>
+  </main>
+
+  <dc-import name="Footer" hint-size="100%,90px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1100}}">
+const RAW_SECTIONS = [
+  {
+    heading: 'The Big Yellow Bus Returns to Klukwan',
+    headingUrl: 'https://www.chilkatvalleynews.com/2025/03/22/the-big-yellow-school-bus-returns-to-kluwkan/',
+    items: [
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2224.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2253-enhanced-nr.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2246.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2290-enhanced-nr.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2307-enhanced-nr.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2308-enhanced-nr.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2328.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2065.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2369-enhanced-nr-2.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2382-enhanced-nr.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2231.jpg?w=1600',
+    ],
+  },
+  {
+    heading: 'Two days at the fairgrounds',
+    items: [
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9312.jpg?w=1600', caption: 'Chloe Copeland waits to go onstage at Friday\u2019s wearable arts show, August 1, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9687.jpg?w=1600', caption: 'Mark Carroll of Haines band Double Take backstage after finishing a set with band Double Take, Saturday, August 2, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9394.jpg?w=1600', caption: 'Fair go-ers watch Friday\u2019s wearable arts show, August 1, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9872.jpg?w=1600', caption: 'Liam Wirak-Cassidy watches Whiskey Class play their Saturday evening set, August 2, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9695.jpg?w=1600', caption: 'Silvy and Teddy Lynch eat cotton candy, Saturday, August 2, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9569.jpg?w=1600', caption: 'Tatum Hartlieb and Sarah Rountree of Juneau dance along to Juneau band The Getting Strangers, Friday, August 1, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf8819.jpg?w=1600', caption: 'Bella Long gets congratulations after competing in Thursday\u2019s talent show, August 31, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf8633.jpg?w=1600', caption: 'Connor Hansen fills up a water gun, Thursday, July 31, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf8949.jpg?w=1600', caption: 'Olen, Aksel, and Oryn eat cotton candy at the state fair, Friday, August 1, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf8705.jpg?w=1600' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9196.jpg?w=1600', caption: 'Spectators watch Friday\u2019s beach wrestling, August 1, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9205.jpg?w=1600', caption: 'Shannon Miller after competing in Friday\u2019s beach wrestling, August 1, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9684.jpg?w=1600', caption: 'Joe Aultman-Moore walks offstage after finishing a set with band Double Take, Saturday, August 2, 2025. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf9305.jpg?w=1600', caption: 'A brief rainshower hits the fair, Friday, August 1, 2025. (Will Steinfeld/Chilkat Valley News)' },
+    ],
+  },
+  {
+    heading: 'As Mosquito Lake asserts itself, some residents see borough as undercutting their success',
+    headingUrl: 'https://www.chilkatvalleynews.com/2025/07/18/as-mosquito-lake-asserts-itself-some-residents-see-borough-as-undercutting-their-success/',
+    subtitle: '(The first annual Mosquito Lake watermelon-eating contest)',
+    items: [
+      'https://willsteinfeld.com/wp-content/uploads/2025/11/untitled-32.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/11/untitled-37.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/11/untitled-33.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/11/untitled-38.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/11/untitled-35.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/11/untitled-34.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/11/untitled-36.jpg?w=1600',
+      'https://willsteinfeld.com/wp-content/uploads/2025/11/untitled-39.jpg?w=1600',
+    ],
+  },
+  {
+    heading: 'The Chilkat 100',
+    headingUrl: 'https://www.chilkatvalleynews.com/2025/03/27/need-for-speed-snowburners-host-chilkat-100/',
+    items: [
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2529-2-enhanced-nr.jpg?w=1600', caption: 'Chris Brooks hands out trophies post-race, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2634.jpg?w=1600', caption: 'Gable Sage finishes one of his 20 laps, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2505-2-enhanced-nr.jpg?w=1600', caption: 'Huxley Dunbar shows off his catch \u2013 a roughly foot-long cutthroat \u2013 on Chilkat Lake, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2352.jpg?w=1600', caption: 'Brody Ferrin refuels his snowmachine mid-race, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2368.jpg?w=1600', caption: 'James Sage starts his machine after a mid-race refueling stop, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2673.jpg?w=1600', caption: 'Colour Walsh waves a green signal flag as racers finish a lap, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2643.jpg?w=1600', caption: 'Stephen McLaughlin zooms through the course, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2327.jpg?w=1600', caption: 'Dalton and Ira Henry refuel and swap drivers in the pit, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2745.jpg?w=1600', caption: 'Racers round a corner in the middle of Chilkat Lake, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2248-enhanced-nr.jpg?w=1600', caption: 'Jasper Strong and Ira Henry wait on the starting line before the race, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2667.jpg?w=1600', caption: 'Dylan Swinton zooms through the course, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2972-enhanced-nr.jpg?w=1600', caption: 'Rick Campbell (left) passes off his machine to teammate Rod Young at a pit stop, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+    ],
+  },
+  {
+    heading: 'Haines Night at the 50th Alaska Folk Fest',
+    headingUrl: 'https://www.chilkatvalleynews.com/2025/04/10/local-musicians-travel-to-juneau-to-play-for-haines-night-at-50th-folk-festival/',
+    items: [
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3729-1.jpg?w=1600' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3419-enhanced-nr-1.jpg?w=1600', caption: 'Lucy Nieboer and Henry Leasia hug after their set at the Crystal Saloon in Juneau Tuesday night (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3379-enhanced-nr-1.jpg?w=1600', caption: 'Joel Stuk plays guitar at the Crystal Saloon in Juneau Tuesday night (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3690-enhanced-nr-1.jpg?w=1600', caption: 'Henry Leasia plays keys with band Keep the Pool Open at the Crystal Saloon in Juneau Tuesday night. Leasia played with two bands, Keep the Pool Open and Nalimu (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3362-enhanced-nr-1.jpg?w=1600', caption: 'Lucy Nieboer brings an audience member to the stage at the Crystal Saloon in Juneau Tuesday night for an impromptu speech about the Haines Pool. That was during the set of relevantly-named Keep the Pool Open (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3379-enhanced-nr.jpg?w=1600', caption: 'Joel Stuk plays guitar at the Crystal Saloon in Juneau Tuesday night (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3417-enhanced-nr-1.jpg?w=1600', caption: 'Lucy Nieboer finishes her set with Keep the Pool Open at the Crystal Saloon in Juneau Tuesday night (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3306-enhanced-nr-1.jpg?w=1600', caption: 'Lucy Nieboer onstage at the Crystal Saloon in Juneau Tuesday night (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3796-enhanced-nr-1.jpg?w=1600', caption: 'Joel Stuk singing at the Crystal Saloon in Juneau Tuesday night. Stuk played with Keep the Pool Open and Nalimu (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3259-1.jpg?w=1600', caption: 'Keep the Pool Open hugs before going on at the Crystal Saloon in Juneau Tuesday night (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3758-1.jpg?w=1600', caption: 'Lucy Nieboer plays onstage at the Crystal Saloon in Juneau Tuesday night (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3337-enhanced-nr-1.jpg?w=1600', caption: 'Lucy Nieboer onstage at the Crystal Saloon in Juneau Tuesday night (Will Steinfeld/Chilkat Valley News).' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/04/dscf3516-1.jpg?w=1600', caption: 'Ryan Irvin plays onstage at the Crystal Saloon in Juneau Tuesday night. Irvin\u2019s set was part of Haines Night at the Alaska Folk Festival (Will Steinfeld/Chilkat Valley News).' },
+    ],
+  },
+  {
+    heading: 'Stream Jumping',
+    items: [
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/06/dscf4994.jpg?w=1600', caption: 'Participants in Tuesday\u2019s Haines Public Library Trail Adventure explore a creek across from Pyramid Island. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/06/dscf4967.jpg?w=1600', caption: 'Owen Stickel, Elias Mason, and Luke Hall explore a creek across from Pyramid Island during Tuesday\u2019s Haines Public Library Trail Adventure (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/06/dscf5058.jpg?w=1600', caption: 'Emma Coblent, Aurora Mason, Sadie Stickel, and Heather fight through a stiff wind across from Pyramid Island during Tuesday\u2019s Haines Public Library Trail Adventure. (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf4990.jpg?w=1600', caption: 'Elias Mason, Luke Hall, and Owen Stickel explore a creek across from Pyramid Island during Tuesday\u2019s Haines Public Library Trail Adventure (Will Steinfeld/Chilkat Valley News)' },
+      { url: 'https://willsteinfeld.com/wp-content/uploads/2025/08/dscf4981.jpg?w=1600', caption: 'Elias Mason jumps a creek across from Pyramid Island during Tuesday\u2019s Haines Public Library Trail Adventure (Will Steinfeld/Chilkat Valley News)' },
+    ],
+  },
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    const sections = RAW_SECTIONS.map((s) => ({
+      heading: s.heading,
+      headingUrl: s.headingUrl || null,
+      plainHeading: !s.headingUrl,
+      hasSubtitle: !!s.subtitle,
+      subtitle: s.subtitle || '',
+      items: s.items,
+    }));
+    return { sections };
+  }
+}
+
+</script>
+</body>
+</html>

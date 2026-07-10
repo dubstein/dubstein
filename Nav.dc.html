@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<nav data-screen-label="Nav" style="position:fixed; top:0; left:0; width:220px; height:100vh; overflow-y:auto; box-sizing:border-box; padding:36px 28px 36px; display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; z-index:10;">
+  <a href="Home.dc.html" style="font-family:Georgia,'Times New Roman',serif; font-size:23px; letter-spacing:0.01em; color:#111111; text-decoration:none; display:block; margin:0 0 26px;">Will Steinfeld</a>
+
+  
+
+  <div style="display:flex; flex-direction:column; gap:20px; transform: translateY({{ navOffsetY }}px) scale({{ menuScale }}); transform-origin: top left;">
+    <a href="Writing.dc.html" style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:{{ writingColor }}; text-decoration:none;">Writing</a>
+
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div onClick="{{ togglePhotoStories }}" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
+        <span style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:{{ photoStoriesColor }};">Photo Stories</span>
+        <span style="font-size:11px; color:#999999;">{{ photoStoriesCaret }}</span>
+      </div>
+      <sc-if value="{{ photoStoriesOpen }}" hint-placeholder-val="{{ true }}">
+        <a href="Photo Story - Haines Celebrates 250.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px;">Haines Celebrates 250</a>
+        <a href="Photo Story - Big Yellow Bus.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px; line-height:1.4;">The Big Yellow Bus Returns to Klukwan</a>
+        <a href="Photo Story - Fairgrounds.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px;">Two Days at the Fairgrounds</a>
+        <a href="Photo Story - Mosquito Lake.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px; line-height:1.4;">Mosquito Lake Asserts Itself</a>
+        <a href="Photo Story - Eldred Rock.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px; line-height:1.4;">Eldred Rock Prepares for the Public</a>
+        <a href="Photo Story - Chilkat 100.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px;">The Chilkat 100</a>
+        <a href="Photo Story - Folk Fest.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px; line-height:1.4;">Haines Night at Folk Fest</a>
+        <a href="Photo Story - Stream Jumping.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px;">Stream Jumping</a>
+      </sc-if>
+    </div>
+
+    <a href="Radio.dc.html" style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:{{ radioColor }}; text-decoration:none;">Radio</a>
+
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div onClick="{{ togglePersonal }}" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
+        <span style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:{{ personalColor }};">Personal</span>
+        <span style="font-size:11px; color:#999999;">{{ personalCaret }}</span>
+      </div>
+      <sc-if value="{{ personalOpen }}" hint-placeholder-val="{{ true }}">
+        <a href="Personal - The Band.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px;">The Band</a>
+        <a href="Personal - Pale Stain.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px;">Pale Stain</a>
+        <a href="Personal - Waiting For Rain.dc.html" style="font-size:12px; color:#888888; text-decoration:none; padding-left:12px;">Waiting for Rain</a>
+      </sc-if>
+    </div>
+
+    <a href="About.dc.html" style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:{{ aboutColor }}; text-decoration:none;">About</a>
+  </div><a href="https://www.instagram.com/willsteinfeld/" style="margin-top:auto; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#bbbbbb; text-decoration:none;">Instagram</a>
+</nav>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:220,&quot;height&quot;:600},&quot;current&quot;:{&quot;editor&quot;:null,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;menuScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.85,&quot;min&quot;:0.7,&quot;max&quot;:1.4,&quot;step&quot;:0.05,&quot;unit&quot;:&quot;x&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Menu&quot;},&quot;navOffsetY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:40,&quot;min&quot;:-100,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Menu&quot;}}">
+class Component extends DCLogic {
+  state = { psOpen: null, personalOpen: null };
+
+  renderVals() {
+    const current = this.props.current ?? '';
+    const activeColor = '#111111';
+    const inactiveColor = '#999999';
+
+    const photoStoriesOpen = this.state.psOpen === null
+      ? current === 'photo-stories'
+      : this.state.psOpen;
+    const personalOpen = this.state.personalOpen === null
+      ? current === 'personal'
+      : this.state.personalOpen;
+
+    return {
+      writingColor: current === 'writing' ? activeColor : inactiveColor,
+      photoStoriesColor: current === 'photo-stories' ? activeColor : inactiveColor,
+      radioColor: current === 'radio' ? activeColor : inactiveColor,
+      personalColor: current === 'personal' ? activeColor : inactiveColor,
+      aboutColor: current === 'about' ? activeColor : inactiveColor,
+      menuScale: this.props.menuScale ?? 1,
+      navOffsetY: this.props.navOffsetY ?? 0,
+      photoStoriesOpen,
+      personalOpen,
+      photoStoriesCaret: photoStoriesOpen ? '\u2212' : '+',
+      personalCaret: personalOpen ? '\u2212' : '+',
+      togglePhotoStories: () => this.setState({ psOpen: !photoStoriesOpen }),
+      togglePersonal: () => this.setState({ personalOpen: !personalOpen }),
+      stopLinkPropagation: (e) => e.stopPropagation(),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

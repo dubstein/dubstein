@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#f5f3f0"/><text x="50" y="62" font-family="Georgia,serif" font-size="42" text-anchor="middle" fill="#111111">W</text></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { color: #111111; text-decoration: none; }
+  a:hover { color: #666666; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:#ffffff; color:#111111; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; padding-left:240px; box-sizing:border-box;">
+
+  <dc-import name="Nav" current="photo-stories" menu-scale="0.85" nav-offset-y="40" hint-size="100%,90px"></dc-import>
+
+  <main data-screen-label="The Big Yellow Bus Returns to Klukwan" style="flex:1; display:flex; flex-direction:column; align-items:center; padding:64px 24px 96px;">
+    <div style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#999999; margin-bottom:12px;">Photo Stories</div>
+    <h1 style="font-family:Georgia,'Times New Roman',serif; font-weight:400; font-size:34px; margin:0 0 16px; text-align:center; max-width:640px;">The Big Yellow Bus Returns to Klukwan</h1>
+    <a href="https://www.chilkatvalleynews.com/2025/03/22/the-big-yellow-school-bus-returns-to-kluwkan/" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#999999; text-decoration:none; margin-bottom:44px;">Read the article on Chilkat Valley News <span style="color:#bbbbbb;">↗</span></a>
+
+    <dc-import name="PhotoStack" items="{{ images }}" hint-size="100%,1200px"></dc-import>
+  </main>
+
+  <dc-import name="Footer" hint-size="100%,90px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1100}}">
+const IMAGES = [
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2224.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2253-enhanced-nr.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2246.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2290-enhanced-nr.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2307-enhanced-nr.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2308-enhanced-nr.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2328.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2065.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2369-enhanced-nr-2.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2382-enhanced-nr.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2231.jpg?w=1600',
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    return { images: IMAGES };
+  }
+}
+
+</script>
+</body>
+</html>

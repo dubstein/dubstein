@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#f5f3f0"/><text x="50" y="62" font-family="Georgia,serif" font-size="42" text-anchor="middle" fill="#111111">W</text></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { color: #111111; text-decoration: none; }
+  a:hover { color: #666666; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:#ffffff; color:#111111; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; padding-left:240px; box-sizing:border-box;">
+
+  <dc-import name="Nav" current="photo-stories" menu-scale="0.85" nav-offset-y="40" hint-size="100%,90px"></dc-import>
+
+  <main data-screen-label="The Chilkat 100" style="flex:1; display:flex; flex-direction:column; align-items:center; padding:64px 24px 96px;">
+    <div style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#999999; margin-bottom:12px;">Photo Stories</div>
+    <h1 style="font-family:Georgia,'Times New Roman',serif; font-weight:400; font-size:34px; margin:0 0 16px; text-align:center; max-width:640px;">The Chilkat 100</h1>
+    <a href="https://www.chilkatvalleynews.com/2025/03/27/need-for-speed-snowburners-host-chilkat-100/" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#999999; text-decoration:none; margin-bottom:44px;">Read the article on Chilkat Valley News <span style="color:#bbbbbb;">↗</span></a>
+
+    <dc-import name="PhotoStack" items="{{ images }}" hint-size="100%,1200px"></dc-import>
+  </main>
+
+  <dc-import name="Footer" hint-size="100%,90px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1100}}">
+const IMAGES = [
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2529-2-enhanced-nr.jpg?w=1600', caption: 'Chris Brooks hands out trophies post-race, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2634.jpg?w=1600', caption: 'Gable Sage finishes one of his 20 laps, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2505-2-enhanced-nr.jpg?w=1600', caption: 'Huxley Dunbar shows off his catch \u2013 a roughly foot-long cutthroat \u2013 on Chilkat Lake, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2352.jpg?w=1600', caption: 'Brody Ferrin refuels his snowmachine mid-race, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2368.jpg?w=1600', caption: 'James Sage starts his machine after a mid-race refueling stop, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2673.jpg?w=1600', caption: 'Colour Walsh waves a green signal flag as racers finish a lap, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2643.jpg?w=1600', caption: 'Stephen McLaughlin zooms through the course, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2327.jpg?w=1600', caption: 'Dalton and Ira Henry refuel and swap drivers in the pit, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2745.jpg?w=1600', caption: 'Racers round a corner in the middle of Chilkat Lake, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2248-enhanced-nr.jpg?w=1600', caption: 'Jasper Strong and Ira Henry wait on the starting line before the race, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2667.jpg?w=1600', caption: 'Dylan Swinton zooms through the course, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+  { url: 'https://willsteinfeld.com/wp-content/uploads/2025/03/dscf2972-enhanced-nr.jpg?w=1600', caption: 'Rick Campbell (left) passes off his machine to teammate Rod Young at a pit stop, Saturday, March 22, 2025 (Will Steinfeld/Chilkat Valley News).' },
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    return { images: IMAGES };
+  }
+}
+
+</script>
+</body>
+</html>

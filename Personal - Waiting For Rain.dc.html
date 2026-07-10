@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#f5f3f0"/><text x="50" y="62" font-family="Georgia,serif" font-size="42" text-anchor="middle" fill="#111111">W</text></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; background: #ffffff; }
+  a { color: #111111; text-decoration: none; }
+  a:hover { color: #666666; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:#ffffff; color:#111111; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; padding-left:240px; box-sizing:border-box;">
+
+  <dc-import name="Nav" current="personal" menu-scale="0.85" nav-offset-y="40" hint-size="100%,90px"></dc-import>
+
+  <main data-screen-label="Waiting for Rain" style="flex:1; display:flex; flex-direction:column; align-items:center; padding:64px 24px 96px;">
+    <div style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#999999; margin-bottom:12px;">Personal</div>
+    <h1 style="font-family:Georgia,'Times New Roman',serif; font-weight:400; font-size:34px; margin:0 0 20px; text-align:center;">Waiting for Rain</h1>
+
+    <p style="max-width:560px; text-align:center; font-size:17px; line-height:1.7; color:#444444; margin-bottom:44px;">
+      Dry season in Baribour District, Kampong Chhnang, Cambodia.
+    </p>
+
+    <dc-import name="PhotoStack" items="{{ images }}" hint-size="100%,4000px"></dc-import>
+  </main>
+
+  <dc-import name="Footer" hint-size="100%,90px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1100}}">
+const IMAGES = [
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/81891402-b062-480c-8928-dcb7eab58934_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/61e53e78-98aa-43d3-a6da-b6b3c3480ad3_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/992908fb-aa2a-4f40-8c93-e31112332b69_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/2a912738-ca11-4409-b8d3-df35440ffcee_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/6a4ddfee-b2ed-4480-bd2f-a442c04536c7_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/2f87db4b-e115-4f03-9646-bf6c2da8b67c_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/4bee59bc-9124-4192-88e8-0282e1cdb3f1_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/f6c77f33-f7d2-4a2c-8650-dc18a7bfeae4_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/cc0b8b98-bcf3-45f8-be6b-372052215eba_rw_600-2.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/51fb26ad-54ce-4d89-b223-eb6bff55e148_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/e2fc0ebd-0f68-4f85-afe6-40031e8c4758_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/c91f67fc-443f-49ee-b8ec-f186342ca407_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/3da0981e-cc25-4947-b601-63e1db637e7a_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/2a119e1d-9618-4b44-a0f8-38123c587a17_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/9b909483-e0f0-42d5-9a1f-ad03711585e5_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/02574cc6-26d4-406f-80e4-56dccf01466f_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/06f295e6-694d-4d36-aa07-f2a0146b10f8_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/5aafc163-2bc6-429e-8497-eef924cb90a5_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/513dc63c-1ef0-4ab1-ac22-603fa5da9b25_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/b9e17001-41c6-4dc5-89bd-58332f61876a_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/588530dc-b046-4d51-8666-0b4ad7c32f31_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/ff5e0803-e8d9-4352-9a51-f99d2fc1f3e7_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/aea9d92b-75e3-4208-b10a-e30559f44628_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/dbf0387b-78dc-4575-8b94-d241151022e3_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/78e9cfc9-9a5f-4498-9ff7-67e5bfc88ec2_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/957f6cc3-5472-422f-be6c-23c3c84fb721_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/b8e25f92-b2a6-438c-9f25-4aad2587e2f5_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/458d53fd-b3f8-410d-9520-f5f0282850fa_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/ad16a05f-c458-46d6-be57-1bcd4dc56f65_rw_600-1.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/06acdd2c-ed80-42d6-98de-e85057ccc469_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/649c300b-3486-486e-a60e-b177f73fb9b4_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/0782b5fe-00f8-4125-9f1f-b50962f8d8db_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/b2dac50c-7bb3-4993-a56d-1ccaadd07aac_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/42aff79c-8eec-4dc1-8cbe-8a72fd0966a6_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/4fe1c01a-7172-402f-a5f3-c6e0dfe5822f_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/0bcb7cb3-897c-4521-9822-b97c3ef9e402_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/7420329a-25e7-4ddd-97cd-c7990cf30796_rw_600.jpg?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/screenshot-2024-10-30-at-12.58.44e280afpm.png?w=1600',
+  'https://willsteinfeld.com/wp-content/uploads/2024/10/screenshot-2024-10-30-at-12.58.34e280afpm.png?w=1600',
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    return { images: IMAGES };
+  }
+}
+
+</script>
+</body>
+</html>
