@@ -16,7 +16,7 @@
 </style>
 </helmet>
 
-<div style="min-height:100vh; display:flex; flex-direction:column; background:#ffffff; color:#111111; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; padding-left:240px; box-sizing:border-box;">
+<div style="min-height:100vh; display:flex; flex-direction:column; background:#ffffff; color:#111111; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; padding-left:{{ shellPaddingLeft }}; padding-top:{{ shellPaddingTop }}; box-sizing:border-box;">
 
   <dc-import name="Nav" current="personal" menu-scale="0.85" nav-offset-y="40" hint-size="100%,90px"></dc-import>
 
@@ -79,8 +79,28 @@ const IMAGES = [
 ];
 
 class Component extends DCLogic {
+  state = {
+    isMobile: typeof window !== 'undefined' && window.innerWidth <= 768,
+  };
+
+  componentDidMount() {
+    this._onResize = () => {
+      const m = window.innerWidth <= 768;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m });
+    };
+    window.addEventListener('resize', this._onResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+
   renderVals() {
-    return { images: IMAGES };
+    return {
+      shellPaddingLeft: this.state.isMobile ? '0px' : '240px',
+      shellPaddingTop: this.state.isMobile ? '60px' : '0px',
+      images: IMAGES,
+    };
   }
 }
 

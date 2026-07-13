@@ -7,6 +7,7 @@
 </head>
 <body>
 <x-dc>
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
 <nav data-screen-label="Nav" style="position:fixed; top:0; left:0; width:220px; height:100vh; overflow-y:auto; box-sizing:border-box; padding:36px 28px 36px; display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; z-index:10;">
   <a href="Home.dc.html" style="font-family:Georgia,'Times New Roman',serif; font-size:23px; letter-spacing:0.01em; color:#111111; text-decoration:none; display:block; margin:0 0 26px;">Will Steinfeld</a>
 
@@ -49,11 +50,87 @@
     <a href="About.dc.html" style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:{{ aboutColor }}; text-decoration:none;">About</a>
   </div><a href="https://www.instagram.com/willsteinfeld/" style="margin-top:auto; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#bbbbbb; text-decoration:none;">Instagram</a>
 </nav>
+</sc-if>
+
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+<nav data-screen-label="Nav Mobile" style="position:fixed; top:0; left:0; width:100%; height:60px; box-sizing:border-box; padding:0 20px; display:flex; align-items:center; justify-content:space-between; background:#ffffff; border-bottom:1px solid #eeeeee; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; z-index:30;">
+  <a href="Home.dc.html" style="font-family:Georgia,'Times New Roman',serif; font-size:20px; color:#111111; text-decoration:none;">Will Steinfeld</a>
+  <div onClick="{{ toggleMobileMenu }}" style="display:flex; align-items:center; justify-content:center; width:44px; height:44px; margin-right:-12px; cursor:pointer;">
+    <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+      <span style="font-size:26px; line-height:1; color:#111111;">×</span>
+    </sc-if>
+    <sc-if value="{{ mobileMenuClosed }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; flex-direction:column; gap:5px; width:22px;">
+        <span style="display:block; height:2px; width:100%; background:#111111;"></span>
+        <span style="display:block; height:2px; width:100%; background:#111111;"></span>
+        <span style="display:block; height:2px; width:100%; background:#111111;"></span>
+      </div>
+    </sc-if>
+  </div>
+</nav>
+<sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed; top:60px; left:0; width:100%; height:calc(100vh - 60px); background:#ffffff; z-index:29; overflow-y:auto; box-sizing:border-box; padding:28px 24px 40px; display:flex; flex-direction:column; gap:26px;">
+    <a href="Writing.dc.html" style="font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:{{ writingColor }}; text-decoration:none;">Writing</a>
+
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div onClick="{{ togglePhotoStories }}" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer; padding:4px 0;">
+        <span style="font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:{{ photoStoriesColor }};">Photo Stories</span>
+        <span style="font-size:15px; color:#999999;">{{ photoStoriesCaret }}</span>
+      </div>
+      <sc-if value="{{ photoStoriesOpen }}" hint-placeholder-val="{{ true }}">
+        <a href="Photo Story - Haines Celebrates 250.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px; line-height:1.4;">Haines Celebrates 250</a>
+        <a href="Photo Story - Big Yellow Bus.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px; line-height:1.4;">The Big Yellow Bus Returns to Klukwan</a>
+        <a href="Photo Story - Fairgrounds.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px; line-height:1.4;">Two Days at the Fairgrounds</a>
+        <a href="Photo Story - Mosquito Lake.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px; line-height:1.4;">Mosquito Lake Asserts Itself</a>
+        <a href="Photo Story - Eldred Rock.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px; line-height:1.4;">Eldred Rock Prepares for the Public</a>
+        <a href="Photo Story - Chilkat 100.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px; line-height:1.4;">The Chilkat 100</a>
+        <a href="Photo Story - Folk Fest.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px; line-height:1.4;">Haines Night at Folk Fest</a>
+        <a href="Photo Story - Stream Jumping.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px; line-height:1.4;">Stream Jumping</a>
+      </sc-if>
+    </div>
+
+    <a href="Radio.dc.html" style="font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:{{ radioColor }}; text-decoration:none;">Radio</a>
+
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div onClick="{{ togglePersonal }}" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer; padding:4px 0;">
+        <span style="font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:{{ personalColor }};">Personal</span>
+        <span style="font-size:15px; color:#999999;">{{ personalCaret }}</span>
+      </div>
+      <sc-if value="{{ personalOpen }}" hint-placeholder-val="{{ true }}">
+        <a href="Personal - The Band.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px;">The Band</a>
+        <a href="Personal - Pale Stain.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px;">Pale Stain</a>
+        <a href="Personal - Waiting For Rain.dc.html" style="font-size:14px; color:#888888; text-decoration:none; padding:6px 0 6px 14px;">Waiting for Rain</a>
+      </sc-if>
+    </div>
+
+    <a href="About.dc.html" style="font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:{{ aboutColor }}; text-decoration:none;">About</a>
+
+    <a href="https://www.instagram.com/willsteinfeld/" style="margin-top:12px; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#bbbbbb; text-decoration:none;">Instagram</a>
+  </div>
+</sc-if>
+</sc-if>
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:220,&quot;height&quot;:600},&quot;current&quot;:{&quot;editor&quot;:null,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;menuScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.85,&quot;min&quot;:0.7,&quot;max&quot;:1.4,&quot;step&quot;:0.05,&quot;unit&quot;:&quot;x&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Menu&quot;},&quot;navOffsetY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:40,&quot;min&quot;:-100,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Menu&quot;}}">
 class Component extends DCLogic {
-  state = { psOpen: null, personalOpen: null };
+  state = {
+    psOpen: null,
+    personalOpen: null,
+    mobileMenuOpen: false,
+    isMobile: typeof window !== 'undefined' && window.innerWidth <= 768,
+  };
+
+  componentDidMount() {
+    this._onResize = () => {
+      const m = window.innerWidth <= 768;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m, mobileMenuOpen: m ? this.state.mobileMenuOpen : false });
+    };
+    window.addEventListener('resize', this._onResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
 
   renderVals() {
     const current = this.props.current ?? '';
@@ -82,6 +159,11 @@ class Component extends DCLogic {
       togglePhotoStories: () => this.setState({ psOpen: !photoStoriesOpen }),
       togglePersonal: () => this.setState({ personalOpen: !personalOpen }),
       stopLinkPropagation: (e) => e.stopPropagation(),
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      mobileMenuOpen: this.state.isMobile && this.state.mobileMenuOpen,
+      mobileMenuClosed: !this.state.mobileMenuOpen,
+      toggleMobileMenu: () => this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen }),
     };
   }
 }
